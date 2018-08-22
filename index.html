@@ -11,22 +11,61 @@
 0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
 mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121995579-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'UA-121995579-3');
-  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121995579-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121995579-3');
+</script>
 <script>
   mixpanel.track("pageview");
+
+  window.addEventListener("load", function(event) {
+    // viewContent
+    var addcart = document.querySelector('.viewContent');
+    addcart.addEventListener('click',function(e){
+      e.preventDefault();
+      mixpanel.track("viewContent");
+      alert('瀏覽產品頁');
+    })  
+    
+    // addcart
+    var addcart = document.querySelector('.addcart');
+    addcart.addEventListener('click',function(e){
+      e.preventDefault();
+      mixpanel.track("addcart");
+      alert('加入購物車');
+    })  
+    
+    // checkout
+    var addcart = document.querySelector('.checkout');
+    addcart.addEventListener('click',function(e){
+      e.preventDefault();
+      mixpanel.track("checkout");
+      alert('進入結帳頁');
+    })  
+    
+    // success
+    var addcart = document.querySelector('.success');
+    addcart.addEventListener('click',function(e){
+      e.preventDefault();
+      mixpanel.track("success");
+      alert('success');
+    })  
+    
+
+ }); 
 </script>
 </head>
 <body>
   <h1>首頁</h1>
-  <a href="product.html">進入產品內頁</a>
+  <input type="button" class="viewContent" value="瀏覽產品">
+  <input type="button" class="addcart" value="加入購物車">
+  <input type="button" class="checkout" value="進入結帳頁">
+  <input type="button" class="success" value="購買成功">
   
 </body>
 </html>
