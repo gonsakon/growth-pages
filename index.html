@@ -22,14 +22,15 @@ mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
 </script>
 <script>
   mixpanel.track("pageview");
-
+  
   window.addEventListener("load", function(event) {
+    var msg = document.querySelector('.message')
     // viewContent
     var addcart = document.querySelector('.viewContent');
     addcart.addEventListener('click',function(e){
       e.preventDefault();
       mixpanel.track("viewContent");
-      alert('瀏覽產品頁');
+      msg.textContent = '已進入產品頁';
     })  
     
     // addcart
@@ -37,7 +38,7 @@ mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
     addcart.addEventListener('click',function(e){
       e.preventDefault();
       mixpanel.track("addcart");
-      alert('加入購物車');
+      msg.textContent = '已加入購物車';
     })  
     
     // checkout
@@ -45,7 +46,7 @@ mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
     addcart.addEventListener('click',function(e){
       e.preventDefault();
       mixpanel.track("checkout");
-      alert('進入結帳頁');
+      msg.textContent = '已進入結帳頁';
     })  
     
     // success
@@ -53,7 +54,7 @@ mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
     addcart.addEventListener('click',function(e){
       e.preventDefault();
       mixpanel.track("success");
-      alert('success');
+      msg.textContent = '購買成功';
     })  
     
 
@@ -62,6 +63,7 @@ mixpanel.init("df14d6ddb2e221e268a5b2f1ce34606c");</script><!-- end Mixpanel -->
 </head>
 <body>
   <h1>首頁</h1>
+  <div class="message"></div>
   <input type="button" class="viewContent" value="瀏覽產品">
   <input type="button" class="addcart" value="加入購物車">
   <input type="button" class="checkout" value="進入結帳頁">
